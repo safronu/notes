@@ -1,0 +1,273 @@
+1.Таблица операции:
+	A	B
+A	AA = B	AB = A	
+B	BA = B	BB = A	
+
+
+Эта операция не ассоциативна, контерпример: 
+B = (AB)A != A(BA) = A
+
+2.Таблица операции:
+	A	B
+A	AA = A	AB = B	
+B	BA = A	BB = B	
+
+
+Эта операция ассоциативна, проверки: 
+B = (BB)B = B(BB) = B
+B = (AA)B = A(AB) = B
+A = (BA)A = B(AA) = A
+B = (BA)B = B(AB) = B
+B = (AB)B = A(BB) = B
+A = (BB)A = B(BA) = A
+A = (AA)A = A(AA) = A
+A = (AB)A = A(BA) = A 
+
+3.Таблица операции:
+	A	B
+A	AA = A	AB = A	
+B	BA = A	BB = A	
+
+
+Эта операция ассоциативна, проверки: 
+A = (BB)B = B(BB) = A
+A = (BA)A = B(AA) = A
+A = (BA)B = B(AB) = A
+A = (AA)B = A(AB) = A
+A = (BB)A = B(BA) = A
+A = (AB)B = A(BB) = A
+A = (AA)A = A(AA) = A
+A = (AB)A = A(BA) = A 
+
+4.Таблица операции:
+	A	B
+A	AA = A	AB = A	
+B	BA = B	BB = A	
+
+
+Эта операция не ассоциативна, контерпример: 
+A = (BB)B != B(BB) = B
+
+5.Таблица операции:
+	A	B
+A	AA = B	AB = A	
+B	BA = B	BB = B	
+
+
+Эта операция не ассоциативна, контерпример: 
+B = (AB)A != A(BA) = A
+
+6.Таблица операции:
+	A	B
+A	AA = B	AB = A	
+B	BA = A	BB = B	
+
+
+Эта операция ассоциативна, проверки: 
+B = (BB)B = B(BB) = B
+B = (AA)B = A(AB) = B
+B = (BA)A = B(AA) = B
+A = (BA)B = B(AB) = A
+A = (AA)A = A(AA) = A
+A = (AB)B = A(BB) = A
+B = (AB)A = A(BA) = B
+A = (BB)A = B(BA) = A 
+
+7.Таблица операции:
+	A	B
+A	AA = A	AB = B	
+B	BA = A	BB = A	
+
+
+Эта операция не ассоциативна, контерпример: 
+B = (BB)B != B(BB) = A
+
+8.Таблица операции:
+	A	B
+A	AA = A	AB = B	
+B	BA = B	BB = A	
+
+
+Эта операция ассоциативна, проверки: 
+B = (BB)B = B(BB) = B
+B = (AA)B = A(AB) = B
+B = (BA)A = B(AA) = B
+A = (BA)B = B(AB) = A
+A = (AA)A = A(AA) = A
+A = (AB)B = A(BB) = A
+B = (AB)A = A(BA) = B
+A = (BB)A = B(BA) = A 
+
+9.Таблица операции:
+	A	B
+A	AA = B	AB = B	
+B	BA = B	BB = A	
+
+
+Эта операция не ассоциативна, контерпример: 
+A = (AA)B != A(AB) = B
+
+10.Таблица операции:
+	A	B
+A	AA = A	AB = A	
+B	BA = B	BB = B	
+
+
+Эта операция ассоциативна, проверки: 
+B = (BB)B = B(BB) = B
+B = (BA)A = B(AA) = B
+B = (BA)B = B(AB) = B
+A = (AB)B = A(BB) = A
+B = (BB)A = B(BA) = B
+A = (AA)B = A(AB) = A
+A = (AA)A = A(AA) = A
+A = (AB)A = A(BA) = A 
+
+11.Таблица операции:
+	A	B
+A	AA = B	AB = B	
+B	BA = B	BB = B	
+
+
+Эта операция ассоциативна, проверки: 
+B = (BB)B = B(BB) = B
+B = (AA)B = A(AB) = B
+B = (BA)A = B(AA) = B
+B = (BA)B = B(AB) = B
+B = (BB)A = B(BA) = B
+B = (AB)B = A(BB) = B
+B = (AB)A = A(BA) = B
+B = (AA)A = A(AA) = B 
+
+12.Таблица операции:
+	A	B
+A	AA = A	AB = A	
+B	BA = A	BB = B	
+
+
+Эта операция ассоциативна, проверки: 
+B = (BB)B = B(BB) = B
+A = (BA)A = B(AA) = A
+A = (BA)B = B(AB) = A
+A = (AA)B = A(AB) = A
+A = (BB)A = B(BA) = A
+A = (AB)B = A(BB) = A
+A = (AA)A = A(AA) = A
+A = (AB)A = A(BA) = A 
+
+13.Таблица операции:
+	A	B
+A	AA = B	AB = B	
+B	BA = A	BB = B	
+
+
+Эта операция не ассоциативна, контерпример: 
+A = (AB)A != A(BA) = B
+
+14.Таблица операции:
+	A	B
+A	AA = A	AB = B	
+B	BA = B	BB = B	
+
+
+Эта операция ассоциативна, проверки: 
+B = (BB)B = B(BB) = B
+B = (AA)B = A(AB) = B
+B = (BA)A = B(AA) = B
+B = (BA)B = B(AB) = B
+B = (BB)A = B(BA) = B
+A = (AA)A = A(AA) = A
+B = (AB)B = A(BB) = B
+B = (AB)A = A(BA) = B 
+
+15.Таблица операции:
+	A	B
+A	AA = B	AB = A	
+B	BA = A	BB = A	
+
+
+Эта операция не ассоциативна, контерпример: 
+A = (AA)B != A(AB) = B
+
+16.Таблица операции:
+	A	B
+A	AA = B	AB = B	
+B	BA = A	BB = A	
+
+
+Эта операция не ассоциативна, контерпример: 
+A = (AB)A != A(BA) = B
+
+List(Isomorphic tables:
+ Table 2:
+	A	B
+A	AA = A	AB = A	
+B	BA = A	BB = A	
+
+
+ Table 6
+ 	A	B
+A	AA = B	AB = B	
+B	BA = B	BB = B	
+
+, Isomorphic tables:
+ Table 3:
+	A	B
+A	AA = B	AB = A	
+B	BA = A	BB = B	
+
+
+ Table 4
+ 	A	B
+A	AA = A	AB = B	
+B	BA = B	BB = A	
+
+, Isomorphic tables:
+ Table 4:
+	A	B
+A	AA = A	AB = B	
+B	BA = B	BB = A	
+
+
+ Table 3
+ 	A	B
+A	AA = B	AB = A	
+B	BA = A	BB = B	
+
+, Isomorphic tables:
+ Table 6:
+	A	B
+A	AA = B	AB = B	
+B	BA = B	BB = B	
+
+
+ Table 2
+ 	A	B
+A	AA = A	AB = A	
+B	BA = A	BB = A	
+
+, Isomorphic tables:
+ Table 7:
+	A	B
+A	AA = A	AB = A	
+B	BA = A	BB = B	
+
+
+ Table 8
+ 	A	B
+A	AA = A	AB = B	
+B	BA = B	BB = B	
+
+, Isomorphic tables:
+ Table 8:
+	A	B
+A	AA = A	AB = B	
+B	BA = B	BB = B	
+
+
+ Table 7
+ 	A	B
+A	AA = A	AB = A	
+B	BA = A	BB = B	
+
+)
