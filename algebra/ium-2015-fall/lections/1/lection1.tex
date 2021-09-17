@@ -3,10 +3,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+
 
 \begin{document}
 
+\newcommand{\df}{\overset{df}{=}}
+
 \tableofcontents
+\pagebreak
 \section{Лекция 1}
 Конспект первой лекции Шабата по Алгебре из курса 2015 года.
 
@@ -15,13 +20,114 @@
 Запишем систему линейных уравнений с двумя неизвестными
 \begin{gather}
     \begin{cases} 
-        a_1 x + b_1 y  = c_1 \\ 
-        a_2 x + b_2 y  = c_2
-    \end{cases} 
+        a_1 x + b_1 y  = c_1\\ 
+        a_2 x + b_2 y  = c_2 
+    \end{cases}
 \end{gather}
 
 Её можно решать оперируя с уравнениями 
+\begin{align*}
+b_2 (1) - b_1 (2) &: (a_1 b_2 - a_2 b_1 )x = c_1 b_2 - b_1 c_2 \\
+a_2 (1) - a_1 (2) &: (a_2 b_1 - a_1 b_2 )y = c_1 a_2 - c_1  a_1   
+\end{align*}
 
+Обозначим 
+\begin{equation*}
+    \begin{vmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{vmatrix} \df a_1 b_2 - a_2 b_1 
+\end{equation*}
+что называется \textbf{определителем 2-го порядка}.
+\\Теперь, при 
+$
+\begin{vmatrix}
+    a_1 & b_1 \\
+    a_2 & b_2
+\end{vmatrix} \neq 0 $, получаем единственное решение
 
+\begin{gather}
+        x = \frac{
+            \begin{vmatrix}
+                c_1 & b_1 \\
+                c_2 & b_2
+            \end{vmatrix}
+        }{
+            \begin{vmatrix}
+                a_1 & b_1 \\
+                a_2 & b_2
+            \end{vmatrix}
+        } \\
+        y = \frac{
+            \begin{vmatrix}
+                b_1 & c_1 \\
+                b_2 & c_2
+            \end{vmatrix}
+        }{
+            \begin{vmatrix}
+                a_1 & b_1 \\
+                a_2 & b_2
+            \end{vmatrix}
+        }
+\end{gather}
 
+\subsection{Полиномиальные уравнения: решение уравнения третьей степени}
+
+Рассмотрим кубическое уравнение от одной переменной 
+\begin{equation*}
+a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 
+\end{equation*}
+Заменой $x = u + \frac{a_2}{3}$ уравнение сводится к виду
+\begin{equation*}
+x^3 + mx + n = 0
+\end{equation*}
+Дальше можно использовать замену $x = u + v$ и получить
+\begin{equation*}
+u^3 + v^3 + (u+v)(3uv + m) + n = 0
+\end{equation*}
+Таким образом один из корней можно найти с помощью решения системы:
+
+\begin{equation*}
+    \begin{cases}
+        u^3 + v^3 = -n \\
+        u^3v^3 = \frac{m}{27}
+    \end{cases}        
+\end{equation*}
+Решение которой равносильно решению квадратного уравнения(по теореме Виетта):
+\begin{gather*}
+(\lambda - u^3)(\lambda - v^3) = 0 \\
+\lambda^2 + n\lambda + \frac{m}{27} = 0
+\end{gather*}
+Откуда получаем 
+\begin{gather*}
+u^3 = -\frac{n}{2} + \sqrt{\frac{n^2}{4} + \frac{m^3}{27}} \\
+v^3 = -\frac{n}{2} + \sqrt{\frac{n^2}{4} - \frac{m^3}{27}}
+\end{gather*}
+Откуда 
+\begin{equation*}
+x = \sqrt[3]{-\frac{n}{2} + \sqrt{\frac{n^2}{4} + \frac{m^3}{27}}} + \sqrt[3]{-\frac{n}{2} + \sqrt{\frac{n^2}{4} - \frac{m^3}{27}}}
+\end{equation*}
+Что, опуская формальности, можно назвать \textbf{формулой Кардано}.
+
+\subsection{Отступление к общему случаю}
+Рассмотрим более общую систему
+
+\begin{equation*}
+    \begin{cases}
+     f_1(x_0, \dots,  x_n) = 0 \\
+     \dots \\
+     f_m(x_0, \dots,  x_n) = 0 \\
+    \end{cases}
+\end{equation*}
+где все $f_i$ - многочлены.  
+Множество решений такой системы называется \textbf{аффинным алгебраическим многообразием}.
+Алгебраические многообразия изучает наука под названием \textbf{Алгебраическая геометрия}.
+
+    Другой важный случай: решение уравнений с целыми коэффициентами в целых числах.
+Этим занимается наука \textbf{Диофантова геометрия}. С каждой системой диофантовых уравнений связан вопрос об алгоритмической разрешимости.
+Который и называется \textbf{10-ой проблемой Гильберта}. J. Robinson, M.Davis, Ю.В. Матиясевич доказали, что не существует алгоритма для решения системы диофантовых уравнений в общем виде.
+
+Другим замечательным результатом являеется то, что проблема останова для конкретного алгоритма может быть сведена к вопросу о разрешимости системы диофантовых уравнений.
+
+Вопрос о разрешимости системы полиномиальных уравнений над $\mathbb{Q}$ остаётся открытым.
 \end{document}
