@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{left=20mm,right=20mm,top=25mm,bottom=20mm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{df}{Definition}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+
+\begin{lemma}
+    \label{lemma:1}
+    $\forall k \in \mathbb{Z} ~ \exists f, g \in \mathbb{R}[x] :$    
+    \begin{align*} 
+    sinxsinkx &= f(cosx) \\
+    coskx &= g(cosx) 
+    \end{align*}
+\end{lemma}
+\begin{proof}
+Докажем утверждение по индукции для $\forall n \in \mathbb{N}$.
+\item[База индукции]: 
+\begin{align*}
+    sinxsinx &= 1 - cos^2x \\
+    cos2x &= 2cos^2x - 1
+\end{align*}
+\item[Шаг индукции]: 
+\begin{align*}
+
+\end{align*}
+\end{proof}
+    
+
+
+\begin{theorem}
+    $\forall n \in \mathbb{Z}$ функция $x \mapsto cos(nx)$ есть многочлен от cosx.    
+\end{theorem}
+\begin{proof}
+    Очевидное следствие леммы~\ref{lemma:1}.
+\end{proof}
+
+\end{document}
