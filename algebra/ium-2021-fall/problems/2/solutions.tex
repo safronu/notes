@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\geometry{left=20mm,right=20mm,top=25mm,bottom=20mm}
+
+\newtheorem{task}{Задача}
+\newtheorem{theorem}{Теорема}
+\newtheorem{df}{Определение}
+\newtheorem{lemma}{Лемма}
+\newtheorem{cq}{Следствие}
+\newtheorem{statement}{Утверждение}
+
+\newcommand{\icycle}[3]{(#1_{#2} \dots #1_{#3})}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\range}[2]{\{#1, \dots, #2\}}
+\newcommand{\irange}[3]{#1_{#2}, \dots, #1_{#3}}
+\newcommand{\ad}[2]{#1#2#1^{-1}}
+\newcommand{\adcycle}[4]{(#4(#1_{#2}) \dots #4(#1_{#3}))}
+\newcommand{\dfeq}{\overset{df}{=}}
+\newcommand{\normalin}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
+
+
+\begin{document}
+
+\section*{Задача 1.}
+\begin{task}
+Найдите все нормальные подгруппы группы перестановок $S_4$.
+\end{task}
+\begin{lemma}
+ Каждая перестановка из $S_n$ разлагается в произведение непересекающихся циклов единственным образом.   
+\end{lemma}
+\begin{proof}
+    Пусть $\sigma \in S_n$. 
+    Рассмотрим группу $H = \gen{\sigma} $.
+    Подействуем $H$ на $\range{1}{n}$  посредством применения функции из $H$ к элементам из $\range{1}{n}$.
+    Орбитами при этом действия будут подмножества вида 
+    $Hk = \{ \sigma^i(k) | ~ \forall i \in \range{1}{n},  k \in \range{1}{n} \}$ 
+    Так как орбиты - это разбиение множества ${\range{1}{n}}$,
+    существуют элементы ${\irange{k}{1}{r}} \in \range{1}{n}$ такие, что 
+    $\range{1}{n} = \sqcup Hk_i$.
+    Значит $\forall x \in \range{1}{n} ~ \sigma(x) = \sigma^i(k_j) $ для некоторых $i$ и $j$.
+    Поэтому $\sigma = (\sigma(k_1)\sigma^2(k_1) \dots \sigma^{i_1}(k_1))\dots(\sigma(k_r)\sigma^2(k_r) \dots \sigma^{i_r}(k_r))$.
+\end{proof}
+
+\begin{df}
+\textbf{Циклическим типом перестановки} называется упорядоченный по убыванию набор длин циклов в её разложении на непересекающиеся циклы.    
+\end{df}
+
+\begin{lemma}
+    \label{sec1:action_by_conjugation}
+    Пусть $\tau \in S_n$ и $\tau = \icycle{i}{1}{k_1} \dots \icycle{i}{1}{k_p}$ - 
+    разложение $\tau$ в произведение не пересекающихся циклов.
+    Пусть $\sigma \in S_n$.
+    Тогда $\ad{\sigma}{\tau} = \adcycle{i}{1}{k_1}{\sigma} \dots \adcycle{i}{1}{k_p}{\sigma}$.
+\end{lemma}
+\begin{proof}
+    Так как $Ad_{\sigma}$ - это автоморфизм $S_n$, 
+    нам достаточно доказать, что $\ad{\sigma}{\icycle{i}{1}{n}} = \adcycle{i}{1}{n}{\sigma}$.
+    Пусть $x \in \range{1}{n}$,
+    тогда возможны два варианта
+    \begin{align*}
+        x &= \sigma(i_k), \text{для некоторого} ~ k. \\ 
+        x &= \sigma(y), \text{где} ~ y \notin \irange{i}{1}{n} 
+    \end{align*} 
+    Разберём сначала первый. Пусть $x = \sigma(i_k), \text{для некоторого} ~ k.$ 
+    $\ad{\sigma}{\tau}(x) = \ad{\sigma}{\tau}(\sigma(i_k)) = \sigma(i_{k+1 ~ mod ~ n})$ \\
+    Теперь второй. Пусть $x = \sigma(y), \text{где} ~ y \notin \irange{i}{1}{n}$, тогда 
+    $\ad{\sigma}{\tau}(\sigma(y)) = \sigma(y)$.
+\end{proof}
+
+\begin{cq}
+$S_n$ сопряжением действует транзитивно на циклических типах.
+\end{cq}
+Теперь можно перейти к решению задачи. 
+Предположим, что $H \normalin S_4$.
+Пусть $(ij) \in H$. Тогда $H = S_n$, так как транспозиции порождают $S_4$.
+Значит $H$ не содержит транспозиций. 
+Пусть $(ijk) \in H$. Тогда $H$ содержит все 3-циклы и кроме того содержит  
+$(123)(234) = (12)(34)$, а значит и содержит все элементы с цикличиским типом $(2, 2)$.
+Так как, $(ijk) = (ij)(jk)$ все 3-циклы лежат в $A_4$. 
+Значит группа порождённая всеми 3-циклами содержится в $A_4$.
+Однако элементов циклического типа $(2, 2)$ и $(3, 1)$ - $11$. Вместе с $Id$ - 12.
+А значит $H = A_4$. Так как $[A_4: S_4] = 2$, $A_4$ - нормальна.
+Теперь, пусть $H$ содержит элементы циклического типа $(2, 2)$. $H \subgroup A_4$. 
+Из леммы \ref{sec1:action_by_conjugation} очевидно следует, что подгруппа состоящая из элементов циклического типа $(2, 2)$ и $Id$ нормальна.
+
+Таким образом, мы получили, что в $S_4$ только две нормальных подгруппы: подгруппа порождённая элементами циклического типа $(2, 2)$ и $A_4$.
+
+
+\section*{Задача 2}
+
+\begin{task}
+Докажите, что $Z_{S_n} = {e}$ при $n \geq 3$.
+\end{task}
+
+\begin{df}
+    $Пусть H \subset G$, тогда $C_G(g) \dfeq \{g \in G ~ | ~ \ad{g}{h} = h ~ \forall h \in H\}$
+\end{df}
+
+\begin{lemma}
+Пусть G конечная группа и действует на себе сопряжением.
+Тогда $\#Gh = [G: C_{G}(h)]$ 
+\end{lemma}
+
+\begin{proof}
+Пусть $g \in \tau C_{G}(h)$, тогда $\ad{g}{h} = \ad{(\tau h_k)}{h} = \ad{\tau}{h}$.
+\end{proof}
+
+\begin{statement}
+Пусть $\icycle{i}{1}{m} \in S_n$, тогда $\#C_G(\gen{\icycle{i}{1}{m}} = \frac{n!}{m(n - m)!}$
+\end{statement}
+
+\begin{proof}
+Посчитаем $\#S_{n}h$ при действии $S_n$ на себя сопряжением.
+По лемме \ref{sec1:action_by_conjugation} $S_{n}h$ состоит из всех элементов циклического типа такого, как у $h$.
+То есть в нашем случае, достаточно посчитать количество $m$-циклов.
+По комбинаторным соображениям оно равно $C^{n}_{m} (m - 1)!$, 
+так как мы сначала выбираем $m$ элементов из $n$-элементного множества, 
+а потом рассматриваем их с точностью до всех перестановок, кроме циклических, которых ровно $m$.
+\end{proof}
+
+\begin{statement}
+\label{sec2:cyclecentralizer}
+Пусть $\icycle{i}{1}{m} \in S_n$, тогда $C_G(\icycle{i}{1}{m}) = \{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\range{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\}$
+\end{statement}
+
+\begin{proof}
+    \begin{equation*}
+        \#[G: C_G(h)] = \frac{\#G}{\#C_G(h)} = \frac{n!}{\#C_G(h)} = \frac{n!}{m(n - m)!}    
+    \end{equation*}
+Откуда $\#C_G(h) = m (n - m)!$. \\
+Очевидно, что $\{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\range{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\} \subset C_G(\icycle{i}{1}{m})$.
+При чём $\#\{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\range{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\} = m (n - m)!$
+Откуда и получаем искомое равенство множеств.
+\end{proof}
+
+\begin{statement}
+\label{sec2:center}
+$Z_{G} = \bigcap_{g \in G}C_G(g)$
+\end{statement}
+
+Предварительная подготовка закончена, 
+можно переходить собственно к доказательству утверждения в задаче. 
+
+По утверждению \ref{sec2:center} $Z_{S_n} \subset \bigcap_{i = 1}^{n}C_{S_n}((i i+1)) = e$ 
+при $n \geq 3$ в следствии утверждения \ref{sec2:cyclecentralizer}.
+
+\end{document}

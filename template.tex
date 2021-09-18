@@ -5,12 +5,31 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
 
 \geometry{left=20mm,right=20mm,top=25mm,bottom=20mm}
 
+\newtheorem{task}{Задача}
+\newtheorem{theorem}{Теорема}
+\newtheorem{df}{Определение}
+\newtheorem{lemma}{Лемма}
+\newtheorem{cq}{Следствие}
+\newtheorem{statement}{Утверждение}
+
+\newcommand{\icycle}[3]{(#1_{#2} \dots #1_{#3})}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\range}[2]{\{#1, \dots, #2\}}
+\newcommand{\irange}[3]{#1_{#2}, \dots, #1_{#3}}
+\newcommand{\ad}[2]{#1#2#1^{-1}}
+\newcommand{\adcycle}[4]{(#4(#1_{#2}) \dots #4(#1_{#3}))}
+\newcommand{\dfeq}{\overset{df}{=}}
+\newcommand{\normalin}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
+
 \begin{document}
-\tableofcontents
-\pagebreak
 
 Template
 \end{document}
