@@ -7,8 +7,10 @@
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{amsthm}
-\usepackage{amssymb}
 \usepackage{mathrsfs}
+\usepackage{faktor}
+\usepackage{amssymb}
+
 
 \geometry{left=20mm,right=20mm,top=25mm,bottom=20mm}
 
@@ -28,6 +30,21 @@
 \newcommand{\dfeq}{\overset{df}{=}}
 \newcommand{\normalin}{\trianglelefteq}
 \newcommand{\subgroup}{\leq}
+\newcommand{\isomorphic}{\simeq}
+
+
+\newcommand{\sphere}[1]{\mathbb{S}^{#1}}
+\newcommand{\quotient}[2]{#1 \diagup #2}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zn}[1]{\quotient{\Z}{#1\Z}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\class}[1]{\overline{#1}}
+
 
 
 \begin{document}
@@ -170,7 +187,71 @@ $Z_{G} = \bigcap_{g \in G}C_G(g)$
 \section*{Задача 3}
 
 \begin{task}
-
+    Постройте изоморфизмы 
+    $\quotient{\sphere{1}}{\mu_n} \isomorphic \sphere{1}$ и 
+    $\quotient{\R}{\Q} \isomorphic \quotient{\sphere{1}}{\mu}$.
 \end{task}
+
+\begin{statement}
+$\sphere{1} \isomorphic \quotient{\R}{2\pi\Z}$
+\end{statement}
+
+\begin{proof}
+$\sphere{1} \subgroup \Complex$, при чём 
+$\sphere{1} = \{ e^{i \phi} ~ | ~ \phi \in [0, 2 \pi)\}$.
+Заметим, что $e^{i \phi_1} e^{i \phi_2} = e^{i(\phi_1 + \phi_2 \mod{2\pi\Z})}$ и
+$ \forall \phi \in \R ~ e^{i \phi} = e^{i (\phi \mod{2\pi\Z})}$.
+Тогда отображение $e^{i \phi} \mapsto \phi$ является гомоморфизмом и биекцией, то
+есть изоморфизмом. 
+\end{proof}
+
+\begin{cq}
+\label{sec3:spehere}
+$\sphere{1} \isomorphic \quotient{\R}{\Z}$
+\end{cq}
+
+\begin{proof}
+$2 \pi \Z \isomorphic \Z$
+\end{proof}
+
+\begin{statement}
+$\mu_n \isomorphic \Zn{n}$
+\end{statement}
+
+\begin{statement}
+$\quotient{A}{B} \isomorphic \quotient{(\quotient{A}{C})}{(\quotient{B}{C})}$
+\end{statement}
+
+Таким образом, 
+\begin{math}
+    \quotient{\sphere{1}}{\mu_n}                \isomorphic 
+    \quotient{(\quotient{\R}{\Z})}{(\Zn{n})}    \isomorphic 
+    \quotient{(\quotient{\R}{n\Z})}{(\Zn{n})}   \isomorphic 
+    \quotient{\R}{\Z}                           \isomorphic 
+    \sphere{1}
+\end{math}
+
+Теперь, 
+\begin{math}
+    \quotient{\R}{\Q} \isomorphic
+    \quotient{(\quotient{\R}{\Z})}{(\quotient{\Q}{\Z})} \isomorphic
+    \quotient{\sphere{1}}{(\quotient{\Q}{\Z})}
+\end{math}.
+$\quotient{\Q}{\Z} \subgroup \quotient{\R}{\Z}$.
+
+\begin{statement}
+$\class{x} \in \quotient{\R}{\Z}$ лежит в $\quotient{\Q}{\Z}$ iff $\exists n \in \Z ~ | ~ n x \in \Z$. 
+\end{statement}
+
+\begin{proof}
+    Необходимость: 
+    Пусть $\class{x} \in \quotient{\Q}{\Z}$, тогда $x = \frac{p}{q}$, а значит $q x \in \Z$.
+    Достаточность:
+    Пусть $n x = k$, $k \in \Z$, тогда $x = \frac{k}{n} \in \Q$.
+\end{proof}
+
+Теперь воспользовавшись изоморфизмом из следствия \ref{sec3:spehere}, 
+с помощью его сужения на $\mu$ мы получаем изоморфизм $\mu$ и $\quotient{\Q}{\Z}$, что завершает доказательство второй части.
+
 
 \end{document}
