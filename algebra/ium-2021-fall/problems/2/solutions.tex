@@ -23,8 +23,10 @@
 
 \newcommand{\icycle}[3]{(#1_{#2} \dots #1_{#3})}
 \newcommand{\gen}[1]{\langle #1 \rangle}
-\newcommand{\range}[2]{\{#1, \dots, #2\}}
+\newcommand{\srange}[2]{\{#1, \dots, #2\}}
 \newcommand{\irange}[3]{#1_{#2}, \dots, #1_{#3}}
+\newcommand{\range}[2]{#1, \dots, #2}
+
 \newcommand{\ad}[2]{#1#2#1^{-1}}
 \newcommand{\adcycle}[4]{(#4(#1_{#2}) \dots #4(#1_{#3}))}
 \newcommand{\dfeq}{\overset{df}{=}}
@@ -59,13 +61,13 @@
 \begin{proof}
     Пусть $\sigma \in S_n$. 
     Рассмотрим группу $H = \gen{\sigma} $.
-    Подействуем $H$ на $\range{1}{n}$  посредством применения функции из $H$ к элементам из $\range{1}{n}$.
+    Подействуем $H$ на $\srange{1}{n}$  посредством применения функции из $H$ к элементам из $\srange{1}{n}$.
     Орбитами при этом действия будут подмножества вида 
-    $Hk = \{ \sigma^i(k) | ~ \forall i \in \range{1}{n},  k \in \range{1}{n} \}$ 
-    Так как орбиты - это разбиение множества ${\range{1}{n}}$,
-    существуют элементы ${\irange{k}{1}{r}} \in \range{1}{n}$ такие, что 
+    $Hk = \{ \sigma^i(k) | ~ \forall i \in \srange{1}{n},  k \in \srange{1}{n} \}$ 
+    Так как орбиты - это разбиение множества ${\srange{1}{n}}$,
+    существуют элементы ${\irange{k}{1}{r}} \in \srange{1}{n}$ такие, что 
     $\range{1}{n} = \sqcup Hk_i$.
-    Значит $\forall x \in \range{1}{n} ~ \sigma(x) = \sigma^i(k_j) $ для некоторых $i$ и $j$.
+    Значит $\forall x \in \srange{1}{n} ~ \sigma(x) = \sigma^i(k_j) $ для некоторых $i$ и $j$.
     Поэтому $\sigma = (\sigma(k_1)\sigma^2(k_1) \dots \sigma^{i_1}(k_1))\dots(\sigma(k_r)\sigma^2(k_r) \dots \sigma^{i_r}(k_r))$.
 \end{proof}
 
@@ -83,7 +85,7 @@
 \begin{proof}
     Так как $Ad_{\sigma}$ - это автоморфизм $S_n$, 
     нам достаточно доказать, что $\ad{\sigma}{\icycle{i}{1}{n}} = \adcycle{i}{1}{n}{\sigma}$.
-    Пусть $x \in \range{1}{n}$,
+    Пусть $x \in \srange{1}{n}$,
     тогда возможны два варианта
     \begin{align*}
         x &= \sigma(i_k), \text{для некоторого} ~ k. \\ 
@@ -154,7 +156,7 @@ $g C_{G}(h) \mapsto \ad{g}{h}$.
 
 \begin{statement}
 \label{sec2:cyclecentralizer}
-Пусть $\icycle{i}{1}{m} \in S_n$, тогда $C_G(\icycle{i}{1}{m}) = \{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\range{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\}$
+Пусть $\icycle{i}{1}{m} \in S_n$, тогда $C_G(\icycle{i}{1}{m}) = \{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\srange{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\}$
 \end{statement}
 
 \begin{proof}
@@ -162,8 +164,8 @@ $g C_{G}(h) \mapsto \ad{g}{h}$.
         \#[G: C_G(h)] = \frac{\#G}{\#C_G(h)} = \frac{n!}{\#C_G(h)} = \frac{n!}{m(n - m)!}    
     \end{equation*}
 Откуда $\#C_G(h) = m (n - m)!$. \\
-Очевидно, что $\{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\range{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\} \subset C_G(\icycle{i}{1}{m})$.
-При чём $\#\{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\range{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\} = m (n - m)!$
+Очевидно, что $\{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\srange{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\} \subset C_G(\icycle{i}{1}{m})$.
+При чём $\#\{\icycle{i}{1}{m}^k \sigma | \sigma \in S_{\srange{1}{n} - \{\irange{i}{1}{r}\}} \subgroup S_n\} = m (n - m)!$
 Откуда и получаем искомое равенство множеств.
 \end{proof}
 
@@ -177,12 +179,12 @@ $Z_{G} = \bigcap_{g \in G}C_G(g)$
 
 По утверждению \ref{sec2:center} $Z_{S_n} \subset \bigcap_{i = 1}^{n}C_{S_n}((i i+1))$
 \begin{gather*}
-    C_{S_n}(12) = \{(12) \sigma ~ | ~ \sigma \in S_{\range{1}{n} - \{1, 2\}}\} \\ 
-    C_{S_n}(23) = \{(23) \tau ~ | ~ \tau \in S_{\range{1}{n} - \{2, 3\}}\} \\
-    C_{S_n}(12) \cap C_{S_n}(23) = S_{\range{1}{n} - \{1, 2, 3\}}
+    C_{S_n}(12) = \{(12) \sigma ~ | ~ \sigma \in S_{\srange{1}{n} - \{1, 2\}}\} \\ 
+    C_{S_n}(23) = \{(23) \tau ~ | ~ \tau \in S_{\srange{1}{n} - \{2, 3\}}\} \\
+    C_{S_n}(12) \cap C_{S_n}(23) = S_{\srange{1}{n} - \{1, 2, 3\}}
 \end{gather*}
 
-Продолжая аналогичным образом для $(i i+1)$ получаем $\bigcap_{i = 1}^{n}C_{S_n}((i i+1)) = S_{\range{1}{n} - \range{1}{n}} = \{e\}$
+Продолжая аналогичным образом для $(i i+1)$ получаем $\bigcap_{i = 1}^{n}C_{S_n}((i i+1)) = S_{\srange{1}{n} - \range{1}{n}} = \{e\}$
 
 \section*{Задача 3}
 
@@ -206,7 +208,7 @@ $ \forall \phi \in \R ~ e^{i \phi} = e^{i (\phi \mod{2\pi\Z})}$.
 \end{proof}
 
 \begin{cq}
-\label{sec3:spehere}
+\label{sec3:sphere}
 $\sphere{1} \isomorphic \quotient{\R}{\Z}$
 \end{cq}
 
@@ -250,8 +252,38 @@ $\class{x} \in \quotient{\R}{\Z}$ лежит в $\quotient{\Q}{\Z}$ iff $\exists
     Пусть $n x = k$, $k \in \Z$, тогда $x = \frac{k}{n} \in \Q$.
 \end{proof}
 
-Теперь воспользовавшись изоморфизмом из следствия \ref{sec3:spehere}, 
+Теперь воспользовавшись изоморфизмом из следствия \ref{sec3:sphere}, 
 с помощью его сужения на $\mu$ мы получаем изоморфизм $\mu$ и $\quotient{\Q}{\Z}$, что завершает доказательство второй части.
 
+\section*{Задача 4}
 
+\begin{task}
+Докажите, что группа перестановок $S_n$ порождена транспозициями вида $(i i + 1)$, где $i = \range{1}{n - 1}$.
+\end{task}
+
+По индукции: \\ 
+
+Для $n = 2$ очевидно утверждение выполняется.\\
+
+Пусть выполняется для $S_k$. 
+Тогда заметим, что $S_{k + 1} = \gen{S_{\srange{1}{k}}, S_{\srange{2}{k + 1}}}$.
+В свою очередь, по предположению индукции 
+\begin{align*}
+    S_{\srange{1}{k}} &= \gen{\{(i i + 1) ~ | i \in \srange{1}{k - 1}\}} \\
+    S_{\srange{2}{k + 1}} &= \gen{\{(i i + 1) ~ | i \in \srange{2}{k}\}}
+\end{align*}
+что и доказывает шаг индукции.
+
+
+\section*{Задача 5}
+
+\begin{task}
+Докажите, что при $n \geq 3$ группа $S_n$ порождена элементами $(12)$ и $(12 \dots n)$.
+\end{task}
+
+\begin{equation*}
+    \ad{(12 \dots n)}{(ii+1)} = (i+2 i+3).
+\end{equation*}
+Отсюда получаем, что $\forall i \in \srange{1}{n - 1} ~ (i i+1) \in \gen{(12), (12 \dots n)}$.
+А значит по результату предудыщей задачи $\gen{(12), (12 \dots n)} = S_n$.
 \end{document}
