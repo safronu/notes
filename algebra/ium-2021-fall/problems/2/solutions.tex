@@ -158,7 +158,19 @@ $Z_{G} = \bigcap_{g \in G}C_G(g)$
 Предварительная подготовка закончена, 
 можно переходить собственно к доказательству утверждения в задаче. 
 
-По утверждению \ref{sec2:center} $Z_{S_n} \subset \bigcap_{i = 1}^{n}C_{S_n}((i i+1)) = e$ 
-при $n \geq 3$ в следствии утверждения \ref{sec2:cyclecentralizer}.
+По утверждению \ref{sec2:center} $Z_{S_n} \subset \bigcap_{i = 1}^{n}C_{S_n}((i i+1))$
+\begin{gather*}
+    C_{S_n}(12) = \{(12) \sigma ~ | ~ \sigma \in S_{\range{1}{n} - \{1, 2\}}\} \\ 
+    C_{S_n}(23) = \{(23) \tau ~ | ~ \tau \in S_{\range{1}{n} - \{2, 3\}}\} \\
+    C_{S_n}(12) \cap C_{S_n}(23) = S_{\range{1}{n} - \{1, 2, 3\}}
+\end{gather*}
+
+Продолжая аналогичным образом для $(i i+1)$ получаем $\bigcap_{i = 1}^{n}C_{S_n}((i i+1)) = S_{\range{1}{n} - \range{1}{n}} = \{e\}$
+
+\section*{Задача 3}
+
+\begin{task}
+
+\end{task}
 
 \end{document}
