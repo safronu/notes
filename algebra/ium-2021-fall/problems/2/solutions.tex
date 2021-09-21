@@ -20,6 +20,9 @@
 \newtheorem{lemma}{Лемма}
 \newtheorem{cq}{Следствие}
 \newtheorem{statement}{Утверждение}
+\newtheorem{remark}{Замечание}
+\newtheorem{localdf}{Обозначение}
+
 
 \newcommand{\icycle}[3]{(#1_{#2} \dots #1_{#3})}
 \newcommand{\gen}[1]{\langle #1 \rangle}
@@ -199,47 +202,52 @@ $\sphere{1} \isomorphic \quotient{\R}{2\pi\Z}$
 \end{statement}
 
 \begin{proof}
+\label{sec3:sheperehom}
 $\sphere{1} \subgroup \Complex$, при чём 
-$\sphere{1} = \{ e^{i \phi} ~ | ~ \phi \in [0, 2 \pi)\}$.
+$\sphere{1} = \{ e^{i \phi} ~ | ~ \phi \in [0, 2 \pi)\}$. \\
 Заметим, что $e^{i \phi_1} e^{i \phi_2} = e^{i(\phi_1 + \phi_2 \mod{2\pi\Z})}$ и
-$ \forall \phi \in \R ~ e^{i \phi} = e^{i (\phi \mod{2\pi\Z})}$.
+$ \forall \phi \in \R ~ e^{i \phi} = e^{i (\phi \mod{2\pi\Z})}$. \\
 Тогда отображение $e^{i \phi} \mapsto \phi$ является гомоморфизмом и биекцией, то
-есть изоморфизмом. 
+есть изоморфизмом.
 \end{proof}
 
-\begin{cq}
-\label{sec3:sphere}
-$\sphere{1} \isomorphic \quotient{\R}{\Z}$
-\end{cq}
-
-\begin{proof}
-$2 \pi \Z \isomorphic \Z$
-\end{proof}
+\begin{localdf}
+    Обозначим изоморфизм из доказательства утверждения \ref{sec3:sheperehom} как $\phi$.
+\end{localdf}
 
 \begin{statement}
-$\mu_n \isomorphic \Zn{n}$
+    \begin{gather*}
+        g_{\frac{n}{2\pi}}: \quotient{\R}{2 \pi \Z} \to \quotient{\R}{n\Z} \\
+        g_{\frac{n}{2\pi}}: \class{x} \mapsto \class{\frac{n}{2\pi} x}
+    \end{gather*}
+    g - изоморфизм абелевых групп.
 \end{statement}
+
+\begin{statement}
+$\phi ( g (\mu_n) ) = \Zn{n}$
+\end{statement}
+
+\begin{proof}
+\begin{align*}
+\mu_n &= \{ e^{\frac{2 \pi k}{n}} \in \sphere{1} ~ | ~ k \in \range{0}{n - 1}\} \\
+g(\mu_n) &= \{\class{\frac{2 \pi k}{n}} \in \quotient{\R}{2 \pi \Z} ~ | ~ k \in \range{0}{n - 1}\} \\
+\phi ( g (\mu_n) ) &= \{\class{k} \in \Zn{n} \subset \quotient{\R}{n \Z} ~ | ~ k \in \range{0}{n - 1}\}
+\end{align*}
+\end{proof}
 
 \begin{statement}
 $\quotient{A}{B} \isomorphic \quotient{(\quotient{A}{C})}{(\quotient{B}{C})}$
 \end{statement}
 
+
+
 Таким образом, 
 \begin{math}
     \quotient{\sphere{1}}{\mu_n}                \isomorphic 
-    \quotient{(\quotient{\R}{\Z})}{(\Zn{n})}    \isomorphic 
     \quotient{(\quotient{\R}{n\Z})}{(\Zn{n})}   \isomorphic 
     \quotient{\R}{\Z}                           \isomorphic 
     \sphere{1}
 \end{math}
-
-Теперь, 
-\begin{math}
-    \quotient{\R}{\Q} \isomorphic
-    \quotient{(\quotient{\R}{\Z})}{(\quotient{\Q}{\Z})} \isomorphic
-    \quotient{\sphere{1}}{(\quotient{\Q}{\Z})}
-\end{math}.
-$\quotient{\Q}{\Z} \subgroup \quotient{\R}{\Z}$.
 
 \begin{statement}
 $\class{x} \in \quotient{\R}{\Z}$ лежит в $\quotient{\Q}{\Z}$ iff $\exists n \in \Z ~ | ~ n x \in \Z$. 
@@ -252,8 +260,16 @@ $\class{x} \in \quotient{\R}{\Z}$ лежит в $\quotient{\Q}{\Z}$ iff $\exists
     Пусть $n x = k$, $k \in \Z$, тогда $x = \frac{k}{n} \in \Q$.
 \end{proof}
 
-Теперь воспользовавшись изоморфизмом из следствия \ref{sec3:sphere}, 
-с помощью его сужения на $\mu$ мы получаем изоморфизм $\mu$ и $\quotient{\Q}{\Z}$, что завершает доказательство второй части.
+\begin{remark}
+Это равносильно тому, что $g_{\frac{1}{2 \pi}} (\mu) = \quotient{\Q}{\Z}$
+\end{remark}
+
+Теперь, 
+\begin{math}
+    \quotient{\R}{\Q} \isomorphic
+    \quotient{(\quotient{\R}{\Z})}{(\quotient{\Q}{\Z})} \isomorphic
+    \quotient{\sphere{1}}{\mu}
+\end{math}.
 
 \section*{Задача 4}
 
@@ -306,7 +322,7 @@ $S_n = \gen{(12), (12 \dots n - (k - 2)), (1 n - (k - 1)), \dots, (1 n)}$
 Постройте эпиморфизм $S_4 \to S_3$ и найдите его ядро.
 
 \begin{statement}
-Пусть $f: G_1 \to G_2$
+Пусть $f: G_1 \to G_2$ - 
 \end{statement}
 \end{task}
 
