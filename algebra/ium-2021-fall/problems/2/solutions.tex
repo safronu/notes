@@ -36,6 +36,8 @@
 \newcommand{\normalin}{\trianglelefteq}
 \newcommand{\subgroup}{\leq}
 \newcommand{\isomorphic}{\simeq}
+\newcommand{\epi}[1]{\overset{#1}{\to}}
+\newcommand{\mono}[1]{\overset{#1}{\hookrightarrow}}
 
 
 \newcommand{\sphere}[1]{\mathbb{S}^{#1}}
@@ -118,6 +120,9 @@ $(123)(234) = (12)(34)$, а значит и содержит все элемен
 
 Таким образом, мы получили, что в $S_4$ только две нормальных подгруппы: подгруппа порождённая элементами циклического типа $(2, 2)$ и $A_4$.
 
+\begin{localdf}
+Обозначим нормальную подгруппу из 4 элементов как $V_4$ 
+\end{localdf}
 
 \section*{Задача 2}
 
@@ -320,12 +325,12 @@ $S_n = \gen{(12), (12 \dots n - (k - 2)), (1 n - (k - 1)), \dots, (1 n)}$
 \section*{Задача 7}
 \begin{task}
 Постройте эпиморфизм $S_4 \to S_3$ и найдите его ядро.
-
-\begin{statement}
-Пусть $f: G_1 \to G_2$ - 
-\end{statement}
 \end{task}
-
-
-
+\begin{equation*}
+S_3 \mono{i} S_4 \epi{\pi} \quotient{S_4}{V_4}
+\end{equation*}
+$i$ - вложение. $i(S_3) \cap \ker\pi = i(S_3) \cap V_4 = {e}.$
+Значит $ker( \pi i ) = e$, что равносильно тому, что $\pi i$ - мономорфизм.
+А так как $\#S_3 = \#\quotient{S_4}{V_4}$, $\pi i$ ещё и эпиморфизм, а значит и изоморфизм.
+То есть искомый эпиморфизм $\pi(\pi i)^{-1}$ и его ядро $V_4$.
 \end{document}
